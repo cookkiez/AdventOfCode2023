@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2023.Task1
+namespace AdventOfCode2023.Tasks
 {
     public class Task1
     {
@@ -18,21 +18,21 @@ namespace AdventOfCode2023.Task1
                 var toSum = "";
                 foreach (var ch in line)
                 {
-                    if (Char.IsNumber(ch))
+                    if (char.IsNumber(ch))
                     {
                         if (prevDigit == "")
                         {
                             toSum += ch;
                         }
 
-                        prevDigit = Char.ToString(ch);
+                        prevDigit = char.ToString(ch);
                     }
                 }
                 if (prevDigit != "")
                 {
                     toSum += prevDigit;
                     sum += int.Parse(toSum);
-                }   
+                }
             }
             Console.WriteLine(sum);
             var a = 0;
@@ -42,15 +42,15 @@ namespace AdventOfCode2023.Task1
         {
             var splitted = input.Split("\n").ToList();
             var sum = 0;
-            var validStringDigits = new List<(string, string)> { 
-                ("one", "1"), 
-                ("two", "2"), 
-                ("three", "3"), 
-                ("four", "4"), 
+            var validStringDigits = new List<(string, string)> {
+                ("one", "1"),
+                ("two", "2"),
+                ("three", "3"),
+                ("four", "4"),
                 ("five", "5"),
-                ("six", "6"), 
-                ("seven", "7"), 
-                ("eight", "8"), 
+                ("six", "6"),
+                ("seven", "7"),
+                ("eight", "8"),
                 ("nine", "9"),
                 ("1", "1"),
                 ("2", "2"),
