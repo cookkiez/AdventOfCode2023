@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2023.Tasks
 {
-    public class Task1
+    public class Task1 : AdventTask
     {
-        public void Solve1(string input)
+        public override void Solve1(string input)
         {
             var splitted = input.Split("\n").ToList();
             var sum = 0;
@@ -38,7 +38,7 @@ namespace AdventOfCode2023.Tasks
             var a = 0;
         }
 
-        public void Solve2(string input)
+        public override void Solve2(string input)
         {
             var splitted = input.Split("\n").ToList();
             var sum = 0;
