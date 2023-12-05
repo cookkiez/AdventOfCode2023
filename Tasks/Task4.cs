@@ -20,12 +20,14 @@ namespace AdventOfCode2023.Tasks
             double result = 0;
             foreach(var line in lines)
             {
-                var splitted = line.Split(':');
+                var splitted = line.Trim().Split(':');
                 var nums = splitted[1].Split("|");
                 var winning = nums[0].Split(" ").ToList();
                 var my = nums[1].Split(" ").ToList();
-                winning = winning.Select(w => w.Trim()).Where(w => w != "").ToList();
-                my = my.Select(w => w.Trim()).Where(w => w != "").ToList();
+
+                winning = winning.Where(w => w != "").ToList();
+                my = my.Where(w => w != "").ToList();
+
                 var won = winning.Intersect(my).ToList();
                 if (won.Count > 0) 
                 {
@@ -40,7 +42,6 @@ namespace AdventOfCode2023.Tasks
             var lines = GetLinesList(input);
             double result = 0;
             var copies = new int[lines.Count];
-            for(int k = 0; k < lines.Count; k++) { copies[k] = 0; }
             int i = 0;
             foreach (var line in lines)
             {
@@ -48,15 +49,17 @@ namespace AdventOfCode2023.Tasks
                 var nums = splitted[1].Split("|");
                 var winning = nums[0].Split(" ").ToList();
                 var my = nums[1].Split(" ").ToList();
+
                 winning = winning.Where(w => w != "").ToList();
                 my = my.Where(w => w != "").ToList();
+
                 var won = winning.Intersect(my).ToList();
                 result += 1 + copies[i];
                 for (int k = 0; k < copies[i] + 1; k++)
                 {
-                    for (int j = 1; j < won.Count + 1; j++)
+                    for (int j = 0; j < won.Count; j++)
                     {
-                        copies[i + j] += 1;
+                        copies[i + j + 1]++;
                     }
                 }
                 i++;

@@ -67,12 +67,12 @@ namespace AdventOfCode2023.Tasks
                 var results = new List<(int, string)>();
                 foreach (var (vsd, value) in validStringDigits)
                 {
+                    // This is basicly a hand coded version of Regex.Match :D
                     fun(line, vsd, value, 0, results);
                 }
                 results.Sort((x, y) => x.Item1.CompareTo(y.Item1));
                 var num = string.Concat(results.FirstOrDefault().Item2, results.LastOrDefault().Item2);
                 sum += int.Parse(num);
-                var a = 0;
             }
 
             Console.WriteLine(sum);
