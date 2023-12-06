@@ -1,0 +1,23 @@
+var lines = input.Split("\r\n").Where(s => s != "" || s != string.Empty).ToList();
+            long result = 1;
+            var times = lines.ElementAt(0).Split(" ").Where(t => t != "").Skip(1);
+            var realTimes = string.Join("", times);
+            var distances = lines.ElementAt(1).Split(" ").Where(d => d != "").Skip(1);
+            var realDistances = string.Join("", distances);
+            var time = int.Parse(realTimes.Trim());
+            var dist = int.Parse(realDistances.Trim());
+            var numberOfWays = 0;
+            for (int speed = 1; speed < time; speed++)
+            {
+                var remainingTime = time - speed;
+                var travelled = speed * remainingTime;
+                if (travelled > dist)
+                {
+                    numberOfWays++;
+                }
+            }
+            if (numberOfWays > 0)
+            {
+                result *= numberOfWays;
+            }
+            Console.WriteLine(result);
