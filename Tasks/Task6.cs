@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2023.Tasks
+﻿namespace AdventOfCode2023.Tasks
 {
     public class Task6 : AdventTask
     {
@@ -25,6 +18,8 @@ namespace AdventOfCode2023.Tasks
                 var time = int.Parse(times.ElementAt(i).Trim());
                 var dist = int.Parse(distances.ElementAt(i).Trim());
                 var winningSituations = 0;
+                // Tried to optimize, but it didnt work. For some reason takes same
+                // amount of time as without when going over full range. (measured in part 2)
                 var isEven = time % 2 == 0;
                 var timeToAdd = isEven ? 0 : 1;
                 for (long speed = 1; speed < time / 2 + timeToAdd; speed++)

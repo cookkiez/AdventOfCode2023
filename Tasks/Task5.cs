@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2023.Tasks
+﻿namespace AdventOfCode2023.Tasks
 {
     public class Task5 : AdventTask
     {
@@ -109,7 +102,6 @@ namespace AdventOfCode2023.Tasks
                                     newPossibleRanges.Add((dest, n - underflow));
                                 }
                             }
-                            var a = 0;
                         }
                         possibleRanges = tempPossibleRanges.ToList();
                     }
