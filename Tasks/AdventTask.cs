@@ -9,7 +9,7 @@ namespace AdventOfCode2023.Tasks
    
     public abstract class AdventTask
     {
-        public string Filename = $"D:\\GeniRepos\\AdventOfCode2023\\Inputs\\";
+        public string Filename = $"C:\\Users\\ambro\\OneDrive\\Documents\\AdventOfCode\\AdventOfCode2023\\Inputs\\";
 
         public abstract void Solve1(string input);
         public abstract void Solve2(string input);
