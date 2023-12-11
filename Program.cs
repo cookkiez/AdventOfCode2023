@@ -1,6 +1,6 @@
 ﻿using AdventOfCode2023.Tasks;
 
-var task = new Task10();
+var task = new Task11();
 var task1Watch = new System.Diagnostics.Stopwatch();
 var task2Watch = new System.Diagnostics.Stopwatch();
 
