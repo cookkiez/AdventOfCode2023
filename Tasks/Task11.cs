@@ -1,11 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.IO.MemoryMappedFiles;
-using System.Linq;
-using System.Net.WebSockets;
-using System.Reflection.Metadata.Ecma335;
-
-namespace AdventOfCode2023.Tasks
+﻿namespace AdventOfCode2023.Tasks
 {
     public class Task11 : AdventTask
     {

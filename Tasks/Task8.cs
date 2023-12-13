@@ -1,6 +1,4 @@
-﻿using System.Net.NetworkInformation;
-
-namespace AdventOfCode2023.Tasks
+﻿namespace AdventOfCode2023.Tasks
 {
     public class Task8 : AdventTask
     {
