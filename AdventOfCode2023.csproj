@@ -17,6 +17,7 @@
 	  <None Remove="Inputs\11.txt" />
 	  <None Remove="Inputs\12.txt" />
 	  <None Remove="Inputs\13.txt" />
+	  <None Remove="Inputs\14.txt" />
 	</ItemGroup>
 
 </Project>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2023.Tasks
+﻿namespace AdventOfCode2023.Tasks
 {
    
     public abstract class AdventTask
@@ -16,12 +10,12 @@ namespace AdventOfCode2023.Tasks
 
         public List<string> GetLinesList(string input)
         {
-            return input.Split("\n").ToList();
+            return input.Split("\n").Select(l => l.Trim()).ToList();
         }
 
         public string[] GetLinesArray(string input)
         {
-            return input.Split("\n").ToArray();
+            return input.Split("\n").Select(l => l.Trim()).ToArray();
         }
     }
 }
