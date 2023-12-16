@@ -41,13 +41,13 @@ namespace AdventOfCode2023.Tasks
                 '\\' => new List<Direction> {
                         (dir == Direction.North) ? Direction.West :
                         (dir == Direction.South) ? Direction.East :
-                        (dir == Direction.West) ? Direction.North:
-                        Direction.South},
+                        (dir == Direction.West) ? Direction.North :
+                        Direction.South },
                 '/' => new List<Direction> {
                         (dir == Direction.North) ? Direction.East :
                         (dir == Direction.South) ? Direction.West :
-                        (dir == Direction.West) ? Direction.South:
-                        Direction.North},
+                        (dir == Direction.West) ? Direction.South :
+                        Direction.North },
                 '-' => (dir == Direction.West || dir == Direction.East) ?
                         new List<Direction> { dir } : new List<Direction> { Direction.West, Direction.East },
                 _ => new List<Direction> { dir }
@@ -79,7 +79,7 @@ namespace AdventOfCode2023.Tasks
                     {
                         var beams = new Queue<Beam>();
                         beams.Enqueue(GetStartingBeam(new Beam(row, col, Direction.North), row, col, grid));
-                        tasks.Add(Task.Run(() => { return  GetEnergized(beams, grid); }));
+                        tasks.Add(Task.Run(() => { return GetEnergized(beams, grid); }));
                     }
                 }
             }
