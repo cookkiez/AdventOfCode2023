@@ -1,9 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.Design.Serialization;
-using System.Reflection.Metadata.Ecma335;
-using System.Text.RegularExpressions;
-
-namespace AdventOfCode2023.Tasks
+﻿namespace AdventOfCode2023.Tasks
 {
     public class Task16 : AdventTask
     {

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -19,6 +19,7 @@
 	  <None Remove="Inputs\13.txt" />
 	  <None Remove="Inputs\14.txt" />
 	  <None Remove="Inputs\15.txt" />
+	  <None Remove="Inputs\17.txt" />
 	</ItemGroup>
 
 </Project>
