@@ -1,6 +1,5 @@
 ﻿namespace AdventOfCode2023.Tasks
 {
-   
     public abstract class AdventTask
     {
         public string Filename = $"Inputs\\";

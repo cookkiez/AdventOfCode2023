@@ -29,7 +29,6 @@
                 }
             }
             Console.WriteLine(sum);
-            var a = 0;
         }
 
         public override void Solve2(string input)
