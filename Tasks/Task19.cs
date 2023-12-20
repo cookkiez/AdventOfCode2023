@@ -1,6 +1,4 @@
-﻿using System.Collections.Frozen;
-
-namespace AdventOfCode2023.Tasks
+﻿namespace AdventOfCode2023.Tasks
 {
     public class Task19 : AdventTask
     {
