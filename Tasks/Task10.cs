@@ -7,60 +7,51 @@
             Filename += "10.txt";
         }
 
-        // Possible movement directions - probably could be named Direction.
-        private enum Compass
-        {
-            North,
-            East,
-            South,
-            West
-        }
-
-        private Compass GetNextDirection(Compass direction)
+        private Direction GetNextDirection(Direction direction)
         {
             // Get correct next direction. Eg. if coming from the North, the direction is South. 
             // If coming from the East, direction is West.
             // This helps for finding the next direction of a symbol. 
             switch (direction)
             {
-                case Compass.North:
-                    return Compass.South;
-                case Compass.East:
-                    return Compass.West;
-                case Compass.South:
-                    return Compass.North;
-                case Compass.West:
-                    return Compass.East;
+                case Direction.North:
+                    return Direction.South;
+                case Direction.East:
+                    return Direction.West;
+                case Direction.South:
+                    return Direction.North;
+                case Direction.West:
+                    return Direction.East;
             }
-            return Compass.North;
+            return Direction.North;
         }
 
-        // All possible moves based on the character. Always use only one direction of the compass
+        // All possible moves based on the character. Always use only one direction of the Direction
         // When finding new direction to move in, filter one of these out. Eg. if coming into 'J'
         // from the West, then use North as new direction - make a move to the North next. 
         // Use 'S' only at the start.
-        private Dictionary<char, List<Compass>> PossibleMoves = new Dictionary<char, List<Compass>> {
-            { '-', new List<Compass>() { Compass.East, Compass.West } },
-            { '|', new List<Compass>() { Compass.North, Compass.South } },
-            { 'L', new List<Compass>() { Compass.North, Compass.East } },
-            { 'J', new List<Compass>() { Compass.West, Compass.North } },
-            { '7', new List<Compass>() { Compass.South, Compass.West } },
-            { 'F', new List<Compass>() { Compass.East, Compass.South } },
-            { 'S', new List<Compass>() { Compass.East, Compass.West ,  Compass.North, Compass.South } }
+        private Dictionary<char, List<Direction>> PossibleMoves = new Dictionary<char, List<Direction>> {
+            { '-', new List<Direction>() { Direction.East, Direction.West } },
+            { '|', new List<Direction>() { Direction.North, Direction.South } },
+            { 'L', new List<Direction>() { Direction.North, Direction.East } },
+            { 'J', new List<Direction>() { Direction.West, Direction.North } },
+            { '7', new List<Direction>() { Direction.South, Direction.West } },
+            { 'F', new List<Direction>() { Direction.East, Direction.South } },
+            { 'S', new List<Direction>() { Direction.East, Direction.West ,  Direction.North, Direction.South } }
         };
 
-        private (long, long) MakeMove(long row, long col, Compass direction)
+        private (long, long) MakeMove(long row, long col, Direction direction)
         {
             // Make a move according to the direction we are moving. 
             switch (direction)
             {
-                case Compass.West:
+                case Direction.West:
                     return (row, col - 1);
-                case Compass.East:
+                case Direction.East:
                     return (row, col + 1);
-                case Compass.South:
+                case Direction.South:
                     return (row + 1, col);
-                case Compass.North:
+                case Direction.North:
                     return (row - 1, col);
             }
             return (row, col);
@@ -90,7 +81,7 @@
             Console.WriteLine(result);
         }
 
-        private void EnqueueNextMove(long row, long col, Compass dir, char[][] pipeMap, Queue<(long, long, Compass, int)> nextMoves, int dist)
+        private void EnqueueNextMove(long row, long col, Direction dir, char[][] pipeMap, Queue<(long, long, Direction, int)> nextMoves, int dist)
         {
             // Make move in the current direction
             var (nextRow, nextCol) = MakeMove(row, col, dir);
@@ -101,7 +92,7 @@
             nextMoves.Enqueue((nextRow, nextCol, nextDir.First(), ++dist));
         }
 
-        private void GetStartingMoves(long sRow, long sCol, char[][] pipeMap, Queue<(long, long, Compass, int)> nextMoves)
+        private void GetStartingMoves(long sRow, long sCol, char[][] pipeMap, Queue<(long, long, Direction, int)> nextMoves)
         {
             foreach (var direction in PossibleMoves['S'])
             {
@@ -118,14 +109,14 @@
             }
         }
 
-        private (int, int, Queue<(long, long, Compass, int)>, List<(long, long)>, char[][]) InitVals(List<string> lines)
+        private (int, int, Queue<(long, long, Direction, int)>, List<(long, long)>, char[][]) InitVals(List<string> lines)
         {
             var sLine = lines.Where(l => l.Contains("S")).First();
             var sRow = lines.IndexOf(sLine);
             var sCol = sLine.IndexOf("S");
             var pipeMap = lines.Select(line => line.Trim().ToCharArray()).ToArray();
 
-            var nextMoves = new Queue<(long, long, Compass, int)>();
+            var nextMoves = new Queue<(long, long, Direction, int)>();
             var visitedCoords = new List<(long, long)> { (sRow, sCol) };
             return (sRow, sCol, nextMoves, visitedCoords, pipeMap);
         }

@@ -7,11 +7,6 @@
             Filename += "16.txt";
         }
 
-        private enum Direction
-        {
-            North, West, South, East
-        }
-
         private class Beam
         {
             public int Row;

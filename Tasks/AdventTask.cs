@@ -16,5 +16,30 @@
         {
             return input.Split("\n").Select(l => l.Trim()).ToArray();
         }
+
+        protected enum Direction
+        {
+            North, West, South, East, None
+        }
+
+        protected (int Row, int Col) MakeMove((int Row, int Col) block, Direction movingDirection) =>
+            movingDirection switch
+            {
+                Direction.West => (block.Row, block.Col - 1),
+                Direction.East => (block.Row, block.Col + 1),
+                Direction.South => (block.Row + 1, block.Col),
+                Direction.North => (block.Row - 1, block.Col),
+                _ => throw new Exception()
+            };
+
+        protected Direction GetPreviousDirection(Direction direction) =>
+            direction switch
+            {
+                Direction.North => Direction.South,
+                Direction.South => Direction.North,
+                Direction.West => Direction.East,
+                Direction.East => Direction.West,
+                _ => throw new Exception()
+            };
     }
 }

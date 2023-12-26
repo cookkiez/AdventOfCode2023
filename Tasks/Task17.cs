@@ -7,11 +7,6 @@
             Filename += "17.txt";
         }
 
-        private enum Direction
-        {
-            North, West, South, East
-        }
-
         private record Block(int Row, int Col, Direction Dir, int NumStraight, int Distance);
 
         public override void Solve1(string input)
@@ -81,16 +76,6 @@
             }
             return result;
         }
-
-        private Direction GetPreviousDirection(Direction direction) =>
-            direction switch
-            {
-                Direction.North => Direction.South,
-                Direction.South => Direction.North,
-                Direction.West => Direction.East,
-                Direction.East => Direction.West,
-                _ => throw new Exception()
-            };
 
         private (int Row, int Col) MakeMove(Block block, Direction movingDirection) =>
             movingDirection switch

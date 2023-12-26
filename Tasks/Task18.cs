@@ -7,11 +7,6 @@
             Filename += "18.txt";
         }
 
-        private enum Direction
-        {
-            North, West, South, East
-        }
-
         public override void Solve1(string input)
         {
             Console.WriteLine(SolveBoth(input, true));

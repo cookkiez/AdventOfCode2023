@@ -11,11 +11,6 @@
             Filename += "14.txt";
         }
 
-        private enum Direction
-        {
-            North, West, South, East
-        }
-
         public override void Solve1(string input)
         {
             var grid = GetLinesArray(input);
